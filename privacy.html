@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Astrology Magic</title>
+  <meta name="description" content="Privacy Policy for Astrology Magic, operated by American Global Nexus LLC.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Privacy Policy</h1>
+    <p>Astrology Magic — operated by American Global Nexus LLC</p>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:lead@americanglobalnexus.com">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="muted">Effective date: <span id="effective"></span></p>
+
+    <p>This Privacy Policy explains how American Global Nexus LLC (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) handles information when you use Astrology Magic (the &ldquo;App&rdquo;). We designed Astrology Magic to keep your personal data on your device. We do not run user accounts, we do not show ads, and we do not sell or share your data with third parties for marketing.</p>
+
+    <h2>1. Summary</h2>
+    <ul>
+      <li><strong>Birth date, birth time, and place of birth stay on your device.</strong> They are stored locally in your phone&rsquo;s app sandbox and never uploaded to any account or backup we control.</li>
+      <li><strong>To compute a chart, the App sends those fields once over HTTPS to our calculation server.</strong> The server uses them to produce a chart and returns the result. The server does not store the input or write it to logs.</li>
+      <li><strong>We do not run user accounts, advertising SDKs, or analytics SDKs that identify you.</strong></li>
+      <li><strong>You can delete everything by uninstalling the App.</strong></li>
+    </ul>
+
+    <h2>2. Information You Provide</h2>
+    <p>The App lets you enter:</p>
+    <ul>
+      <li>An optional name (a label for your saved profile)</li>
+      <li>Date of birth, time of birth, and place of birth (latitude, longitude, and timezone offset, looked up from a city you choose or entered manually)</li>
+    </ul>
+    <p>This information is stored on your device using your operating system&rsquo;s app storage (<code>AsyncStorage</code> on iOS and Android). It is not synced to a cloud account managed by us.</p>
+
+    <h2>3. How We Use Information You Provide</h2>
+    <p>The only use of your birth details is to compute your astrological chart. When you tap &ldquo;Generate Chart,&rdquo; the App sends your birth fields to our calculation API at <code>americanglobalnexus.com</code> over HTTPS. The API:</p>
+    <ul>
+      <li>Receives the input in memory for the duration of one HTTP request</li>
+      <li>Computes the chart using the Swiss Ephemeris and returns it as JSON</li>
+      <li>Does not save the input to any database (the API has no database)</li>
+      <li>Does not write the input to log files (request body fields and query string fields containing birth data are excluded from access logs at the logger level)</li>
+    </ul>
+
+    <h2>4. Information Collected Automatically (Server)</h2>
+    <p>To operate the calculation service we collect minimal request metadata:</p>
+    <ul>
+      <li>HTTP method, URL path (without query string), response status code, and request duration</li>
+      <li>The IP address of the device making the request, used for rate limiting and abuse prevention</li>
+      <li>Generic User-Agent string</li>
+    </ul>
+    <p>This metadata is retained for up to 30 days for operational and security purposes and is not linked to your birth data.</p>
+
+    <h2>5. City Search</h2>
+    <p>When you search for a city, the App calls the OpenStreetMap Nominatim service through our API to resolve names to coordinates. We send the city name string only. Your birth date and time are used locally to compute the correct timezone offset for the result and are not retained by Nominatim. See <a href="https://www.openstreetmap.org/copyright">OpenStreetMap&rsquo;s terms</a>.</p>
+
+    <h2>6. We Do Not Sell or Share Your Data</h2>
+    <p>We do not sell, rent, trade, or share your personal information with third parties for marketing or advertising. There are no advertising SDKs or third-party analytics SDKs that identify individual users in the App.</p>
+
+    <h2>7. Children&rsquo;s Privacy</h2>
+    <p>Astrology Magic is not directed to children under 13 (or under 16 in the EU/UK). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, contact us at <a href="mailto:lead@americanglobalnexus.com">lead@americanglobalnexus.com</a> and we will delete it.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Because we do not store your birth data on our servers, the most direct way to exercise your rights of access, deletion, and portability is to use the App itself: birth profiles can be removed via long-press in the &ldquo;Recent&rdquo; list, and uninstalling the App removes everything.</p>
+    <p>If you are in California, the EU, the UK, or another jurisdiction with data-protection laws (CCPA, GDPR, UK GDPR, etc.) and you believe we may hold information about you, you can contact us at <a href="mailto:lead@americanglobalnexus.com">lead@americanglobalnexus.com</a> and we will respond within the timeframes required by applicable law.</p>
+
+    <h2>9. Security</h2>
+    <p>All requests between the App and our API use HTTPS. The API runs in a hardened container with rate limiting, security headers (Helmet), and strict input validation. No system is perfectly secure; please report any concerns to <a href="mailto:lead@americanglobalnexus.com">lead@americanglobalnexus.com</a>.</p>
+
+    <h2>10. Changes</h2>
+    <p>If we change this policy in a material way, we will update the effective date at the top of this page and, where appropriate, surface the change in the App.</p>
+
+    <h2>11. Contact</h2>
+    <p>American Global Nexus LLC<br>2000 Leadenhall Street, Atlanta, GA<br><a href="mailto:lead@americanglobalnexus.com">lead@americanglobalnexus.com</a></p>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> American Global Nexus LLC.</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('effective').textContent = new Date().toISOString().slice(0, 10);
+  </script>
+</body>
+</html>
